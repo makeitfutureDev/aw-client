@@ -1,3 +1,5 @@
+> **Makeitfuture source:** [makeitfutureDev/aw-client](https://github.com/makeitfutureDev/aw-client), branch `makeitfuture`. Original project: [ActivityWatch/aw-client](https://github.com/ActivityWatch/aw-client).
+
 aw-client
 =========
 

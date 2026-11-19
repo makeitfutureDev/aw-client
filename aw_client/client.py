@@ -169,6 +169,8 @@ class ActivityWatchClient:
             )
             server_port = port or server_config.get("port", _config["server"]["port"])
             self.server_address = f"{protocol}://{server_host}:{server_port}"
+        if not _is_loopback_host(str(server_host)):
+            raise ValueError("Makeitfuture ActivityWatch permits only a local loopback server")
         self.server_api_key = load_local_server_api_key(
             str(server_host), server_port, profile=resolved
         )
@@ -216,6 +218,7 @@ class ActivityWatchClient:
             params=params,
             headers=self._headers(),
             proxies=self._proxies,
+            allow_redirects=False,
         )
 
     @always_raise_for_request_errors
@@ -234,6 +237,7 @@ class ActivityWatchClient:
             headers=headers,
             params=params,
             proxies=self._proxies,
+            allow_redirects=False,
         )
 
     @always_raise_for_request_errors
@@ -246,6 +250,7 @@ class ActivityWatchClient:
             data=json.dumps(data),
             headers=headers,
             proxies=self._proxies,
+            allow_redirects=False,
         )
 
     def get_info(self):

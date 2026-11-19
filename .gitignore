@@ -12,3 +12,12 @@ __pycache__
 # Output from example scripts
 *.json
 *.csv
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.pem
+*.key
